@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="120 65 150 90" width="100%" height="100%">
+  <defs>
+    <style>
+      .cap-green {
+        fill: #165a30;
+      }
+      .tassel-gold {
+        fill: #df9f15;
+        stroke: #df9f15;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <!-- Tassel string -->
+  <path d="M 195,90 Q 158,102 153,130" fill="none" class="tassel-gold" />
+  <!-- Tassel Fringe -->
+  <path d="M 150,130 L 156,130 L 156,150 L 150,150 Z" class="tassel-gold" />
+  <circle cx="153" cy="130" r="3" class="tassel-gold" />
+  
+  <!-- Cap Base / Under-arch -->
+  <path d="M 160,105 L 160,122 Q 195,134 230,122 L 230,105 Q 195,117 160,105 Z" class="cap-green" />
+  
+  <!-- Cap Top (Diamond) -->
+  <path d="M 130,95 L 195,73 L 260,95 L 195,117 Z" class="cap-green" />
+  
+  <!-- Center button -->
+  <circle cx="195" cy="95" r="4.5" fill="#df9f15" />
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <!-- Definitions for styling -->
+  <defs>
+    <style>
+      .brand-tuition {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-weight: bold;
+        font-size: 68px;
+        fill: #165a30;
+      }
+      .brand-master {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-weight: bold;
+        font-size: 68px;
+        fill: #df9f15;
+      }
+      .tagline {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-size: 19px;
+        fill: #1a1a2e;
+        text-anchor: middle;
+      }
+      .gold-line {
+        stroke: #df9f15;
+        stroke-width: 1.5;
+      }
+      .gold-star {
+        fill: #df9f15;
+      }
+      .cap-green {
+        fill: #165a30;
+      }
+      .tassel-gold {
+        fill: #df9f15;
+        stroke: #df9f15;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+
+  <!-- Graduation Cap (Mortarboard) -->
+  <g transform="translate(-15, 0)">
+    <!-- Tassel string -->
+    <path d="M 195,90 Q 158,102 153,130" fill="none" class="tassel-gold" />
+    <!-- Tassel Fringe -->
+    <path d="M 150,130 L 156,130 L 156,150 L 150,150 Z" class="tassel-gold" />
+    <circle cx="153" cy="130" r="3" class="tassel-gold" />
+    
+    <!-- Cap Base / Under-arch -->
+    <path d="M 160,105 L 160,122 Q 195,134 230,122 L 230,105 Q 195,117 160,105 Z" class="cap-green" />
+    
+    <!-- Cap Top (Diamond) -->
+    <path d="M 130,95 L 195,73 L 260,95 L 195,117 Z" class="cap-green" />
+    
+    <!-- Center button -->
+    <circle cx="195" cy="95" r="4.5" fill="#df9f15" />
+  </g>
+
+  <!-- Logo Text -->
+  <text x="115" y="200">
+    <tspan class="brand-tuition">Tuition</tspan>
+    <tspan class="brand-master" dx="12">Master</tspan>
+  </text>
+
+  <!-- Horizontal Gold Divider Line -->
+  <line x1="130" y1="222" x2="470" y2="222" class="gold-line" />
+
+  <!-- Tagline Text -->
+  <text x="300" y="248" class="tagline">Find the Right Teacher. Build a Brighter Future.</text>
+
+  <!-- Bottom Decorative Divider with Star -->
+  <g>
+    <!-- Left line -->
+    <line x1="180" y1="268" x2="275" y2="268" class="gold-line" />
+    
+    <!-- Four-Pointed Star -->
+    <path d="M 300,258 Q 300,268 290,268 Q 300,268 300,278 Q 300,268 310,268 Q 300,268 300,258 Z" class="gold-star" />
+    
+    <!-- Right line -->
+    <line x1="325" y1="268" x2="420" y2="268" class="gold-line" />
+  </g>
+</svg>
