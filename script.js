@@ -158,3 +158,134 @@ function closeModal(e) {
     document.body.style.overflow = '';
   }
 }
+
+// ---- DUAL REGISTRATION MODAL LOGIC ----
+const WHATSAPP_NUMBER = "917706990114"; // Configured WhatsApp Number
+
+function openRegModal(tabName) {
+  const regModal = document.getElementById('regModal');
+  if (regModal) {
+    regModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (tabName) {
+      switchRegTab(tabName);
+    }
+  }
+}
+
+function closeRegModal(e) {
+  if (!e || e.target === document.getElementById('regModal')) {
+    const regModal = document.getElementById('regModal');
+    if (regModal) {
+      regModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+}
+
+function switchRegTab(tabName) {
+  const tabStudent = document.getElementById('tabStudent');
+  const tabTeacher = document.getElementById('tabTeacher');
+  const formStudent = document.getElementById('formStudent');
+  const formTeacher = document.getElementById('formTeacher');
+  const regBox = document.querySelector('.reg-modal-box');
+
+  if (tabName === 'student') {
+    tabStudent.classList.add('active');
+    tabTeacher.classList.remove('active');
+    formStudent.classList.add('active');
+    formTeacher.classList.remove('active');
+    if (regBox) regBox.style.borderTopColor = 'var(--green)';
+  } else {
+    tabStudent.classList.remove('active');
+    tabTeacher.classList.add('active');
+    formStudent.classList.remove('active');
+    formTeacher.classList.add('active');
+    if (regBox) regBox.style.borderTopColor = 'var(--red)';
+  }
+}
+
+function submitStudentForm(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('studentName').value;
+  const cls = document.getElementById('studentClass').value;
+  const board = document.getElementById('studentBoard').value;
+  const subjects = document.getElementById('studentSubjects').value;
+  const mode = document.getElementById('studentMode').value;
+  const location = document.getElementById('studentLocation').value;
+  const phone = document.getElementById('studentPhone').value;
+
+  const messageText = 
+`*Tuition Station - New Student/Parent Enquiry*
+------------------------------------------------
+*Name:* ${name}
+*Class:* ${cls}
+*Board:* ${board}
+*Subjects Needed:* ${subjects}
+*Preferred Mode:* ${mode}
+*Location:* ${location}
+*WhatsApp:* ${phone}
+------------------------------------------------
+_Directly run by Aditya Sir_`;
+
+  const encodedText = encodeURIComponent(messageText);
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
+  
+  window.open(whatsappUrl, '_blank');
+  
+  // Reset form and close modal
+  document.getElementById('formStudent').reset();
+  closeRegModal();
+}
+
+function submitTeacherForm(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('teacherName').value;
+  const qual = document.getElementById('teacherQual').value;
+  const exp = document.getElementById('teacherExp').value;
+  const subjects = document.getElementById('teacherSubjects').value;
+  const classes = document.getElementById('teacherClasses').value;
+  const mode = document.getElementById('teacherMode').value;
+  const location = document.getElementById('teacherLoc').value;
+  const phone = document.getElementById('teacherPhone').value;
+
+  const messageText = 
+`*Tuition Station - New Tutor Registration*
+------------------------------------------------
+*Name:* ${name}
+*Qualification:* ${qual}
+*Experience:* ${exp} Years
+*Subjects:* ${subjects}
+*Target Classes:* ${classes}
+*Teaching Mode:* ${mode}
+*Preferred Areas:* ${location}
+*WhatsApp:* ${phone}
+------------------------------------------------
+_Directly run by Aditya Sir_`;
+
+  const encodedText = encodeURIComponent(messageText);
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
+  
+  window.open(whatsappUrl, '_blank');
+  
+  // Reset form and close modal
+  document.getElementById('formTeacher').reset();
+  closeRegModal();
+}
+
+// Toppers Showcase slide loop
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.ts-topper-card');
+  if (cards.length > 0) {
+    let currentIdx = 0;
+    setInterval(() => {
+      cards[currentIdx].classList.remove('active');
+      currentIdx = (currentIdx + 1) % cards.length;
+      cards[currentIdx].classList.add('active');
+    }, 3000);
+  }
+});
+
+
