@@ -271,6 +271,7 @@
           <li><span>✓</span> Regular and timely payouts guaranteed</li>
         </ul>
         <a href="javascript:void(0)" onclick="openRegModal('teacher')" class="btn-outline portal-btn">Register as a Tutor</a>
+        <div style="margin-top: 15px; text-align: center;"><a href="guidelines.html" target="_blank" style="color: var(--red); font-size: 13px; font-weight: 600; text-decoration: underline;">Read Tutoring Guidelines 📄</a></div>
       </div>
     </div>
   </section>
@@ -348,6 +349,12 @@
             </div>
             <div class="subj-item eng" onclick="selectSubject('English',this)">
               <span class="subj-icon">📖</span> English
+            </div>
+            <div class="subj-item sst" onclick="selectSubject('SSt',this)">
+              <span class="subj-icon">🌍</span> Social Studies (SSt)
+            </div>
+            <div class="subj-item ai" onclick="selectSubject('AI',this)">
+              <span class="subj-icon">🤖</span> Artificial Intelligence (AI)
             </div>
           </div>
         </div>
@@ -678,6 +685,7 @@
           <li><a href="#notes">Courses</a></li>
           <li><a href="#feedback">Feedback</a></li>
           <li><a href="#contact">Contact Us</a></li>
+          <li><a href="guidelines.html" target="_blank">Tutoring Guidelines</a></li>
         </ul>
       </div>
       <div>
@@ -854,6 +862,13 @@
         <div class="form-group">
           <label for="teacherPhone">WhatsApp Number *</label>
           <input type="tel" id="teacherPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+        </div>
+
+        <div class="form-group" style="display: flex; align-items: flex-start; gap: 8px; margin-top: 15px; margin-bottom: 15px;">
+          <input type="checkbox" id="teacherAgreement" required style="width: auto; margin-top: 4px; cursor: pointer;">
+          <label for="teacherAgreement" style="font-size: 13px; font-weight: 500; cursor: pointer; color: var(--text);">
+            I have read and agree to the <a href="guidelines.html" target="_blank" style="color: var(--red); text-decoration: underline; font-weight: 600;">Tutoring Guidelines</a> *
+          </label>
         </div>
 
         <button type="submit" class="btn-primary form-submit-btn" style="background: var(--red);">Send Registration on WhatsApp 💬</button>
