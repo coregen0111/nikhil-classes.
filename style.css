@@ -1022,6 +1022,26 @@ nav {
   background: #f0f0f4;
 }
 
+.subj-item.sst {
+  border-color: #b56b1e;
+  color: #b56b1e;
+}
+
+.subj-item.sst:hover,
+.subj-item.sst.active {
+  background: #fdf3e8;
+}
+
+.subj-item.ai {
+  border-color: #5b33c1;
+  color: #5b33c1;
+}
+
+.subj-item.ai:hover,
+.subj-item.ai.active {
+  background: #f0ecfb;
+}
+
 .subj-icon {
   font-size: 20px;
   width: 30px;
