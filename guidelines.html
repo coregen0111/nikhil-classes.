@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutoring Guidelines - Tuition Station | Run by Aditya Sir</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --green: #165a30;
+      --green-dark: #104b26;
+      --green-light: #e8f4ec;
+      --red: #df9f15;
+      --red-dark: #c1880f;
+      --red-light: #fdf5e2;
+      --grey: #5a5a6e;
+      --grey-light: #f4f4f6;
+      --white: #ffffff;
+      --text: #1a1a2e;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      --font-primary: 'Poppins', sans-serif;
+      --font-title: 'Baloo 2', cursive;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      color: var(--text);
+      background-color: var(--grey-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+    }
+
+    /* TOP HEADER CONTROLS */
+    .controls {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-back {
+      background-color: var(--white);
+      color: var(--grey);
+      border: 1px solid #ddd;
+    }
+
+    .btn-back:hover {
+      background-color: #f0f0f2;
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    .btn-print {
+      background-color: var(--green-dark);
+      color: var(--white);
+    }
+
+    .btn-print:hover {
+      background-color: var(--green);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(22, 90, 48, 0.25);
+    }
+
+    /* WATERMARKED DOCUMENT CONTAINER */
+    .document-card {
+      background: var(--white);
+      width: 100%;
+      max-width: 800px;
+      min-height: 1000px;
+      padding: 80px 70px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* WATERMARK */
+    .watermark-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+      opacity: 0.06;
+    }
+
+    .watermark-text {
+      font-family: var(--font-title);
+      font-size: 7.5rem;
+      font-weight: 800;
+      color: var(--green);
+      transform: rotate(-35deg);
+      white-space: nowrap;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    /* DOCUMENT CONTENT */
+    .document-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* LOGO HEADER SECTION */
+    .doc-header-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--grey-light);
+      padding-bottom: 20px;
+    }
+
+    .doc-logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .doc-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .doc-logo-name {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: 0.5px;
+    }
+
+    .doc-logo-tagline {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* GUIDELINES TYPOGRAPHY */
+    h1.doc-title {
+      font-family: var(--font-primary);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    h1.doc-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--red);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-left: 4px solid var(--green);
+      padding-left: 12px;
+    }
+
+    .paragraph {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    .rules-list {
+      list-style-type: none;
+      margin-bottom: 25px;
+    }
+
+    .rules-list li {
+      position: relative;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.6;
+      color: var(--text);
+      padding: 12px 18px;
+      background: var(--red-light);
+      border-left: 4px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .points-list {
+      margin-top: 20px;
+    }
+
+    .point-item {
+      margin-bottom: 22px;
+    }
+
+    .point-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .point-title span {
+      background: var(--green-light);
+      color: var(--green-dark);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .point-desc {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #444;
+      padding-left: 32px;
+    }
+
+    /* DIVIDER */
+    .doc-divider {
+      text-align: center;
+      margin: 45px 0 35px;
+      color: #ccc;
+      font-size: 1.1rem;
+      letter-spacing: 8px;
+      font-weight: bold;
+    }
+
+    /* FOOTER INFO */
+    .doc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px dashed #ddd;
+      padding-top: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .doc-footer-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--grey);
+    }
+
+    .doc-footer-item a {
+      color: var(--green-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .doc-footer-item a:hover {
+      color: var(--red-dark);
+      text-decoration: underline;
+    }
+
+    /* PRINT MEDIA RULES */
+    @media print {
+      body {
+        background-color: var(--white);
+        padding: 0;
+      }
+
+      .controls {
+        display: none;
+      }
+
+      .document-card {
+        box-shadow: none;
+        border: none;
+        padding: 40px;
+        min-height: auto;
+      }
+
+      .watermark-overlay {
+        opacity: 0.04;
+      }
+
+      .btn {
+        display: none;
+      }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .document-card {
+        padding: 40px 25px;
+      }
+
+      h1.doc-title {
+        font-size: 1.7rem;
+      }
+
+      .doc-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP HEADER CONTROLS -->
+  <div class="controls">
+    <a href="index.html" class="btn btn-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Home
+    </a>
+    <button onclick="window.print()" class="btn btn-print">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      Print / Save PDF
+    </button>
+  </div>
+
+  <!-- DOCUMENT CARD -->
+  <div class="document-card">
+
+    <!-- Diagonal Watermark Background -->
+    <div class="watermark-overlay">
+      <div class="watermark-text">TS Tuition</div>
+    </div>
+
+    <!-- Document Content -->
+    <div class="document-content">
+
+      <!-- Header Logo Area -->
+      <div class="doc-header-logo">
+        <img src="logo-icon.png" alt="Tuition Station Icon" class="doc-logo-img">
+        <div class="doc-logo-text">
+          <span class="doc-logo-name">TUITION STATION</span>
+          <span class="doc-logo-tagline">TAKING YOU TO YOUR DESTINATION</span>
+        </div>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="doc-title">Tutoring Guidelines</h1>
+
+      <!-- Section: Tutoring Rules -->
+      <h2 class="section-title">Tutoring rules</h2>
+      <ul class="rules-list">
+        <li>1. Do not use your mobile phone during lessons unless for urgent calls.</li>
+        <li>2. Be punctual for your lessons, especially for the first lesson. A first impression counts!</li>
+      </ul>
+
+      <!-- Section: Tips on how to be a good tutor -->
+      <h2 class="section-title">Tips on how to be a good tutor</h2>
+      
+      <p class="paragraph">
+        As a private tutor, you are giving one-to-one assistance to students, so your attitude and behaviour can influence your students subconsciously. As a result, parents tend to be more cautious when selecting a private tutor for their children.
+      </p>
+
+      <p class="paragraph">
+        Tutors need to be intellectually bright and they must know what it feels like not to understand. They must be creative, able to explain a concept by using stories, drawings, analogies, or metaphors. Tuition teachers must be affirming people, humble, and patient.
+      </p>
+
+      <p class="paragraph">
+        So how can you qualify yourself? And what are the requirements to becoming a good private tutor? Here are some points that may help you:
+      </p>
+
+      <!-- Numbered Points -->
+      <div class="points-list">
+        
+        <!-- Point 1 -->
+        <div class="point-item">
+          <div class="point-title">
+            <span>1</span> Establish rapport with the student
+          </div>
+          <div class="point-desc">
+            A good tutor is able to connect and speak the same language as the students. Being on the same wavelength as the student enables more efficient communication.
+          </div>
+        </div>
+
+        <!-- Point 2 -->
+        <div class="point-item">
+          <div class="point-title">
+            <span>2</span> Be a strong motivator
+          </div>
+          <div class="point-desc">
+            You have to understand the reason why the students need home tuition in the first place, is because most of them are not faring well in the subjects they sought tuition assistance for.
+            <br><br>
+            This is where the private tutor’s role as a motivator comes in.
+            <br><br>
+            If you can encourage and motivate them, this will prevent the students from giving up on themselves.
+            <br><br>
+            A positive and healthy mindset is crucial and important to a student's performance. Helping students to understand their course work will help push them on.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Divider -->
+      <div class="doc-divider">**************************************************</div>
+
+      <!-- Footer Contact Grid -->
+      <div class="doc-footer">
+        <div class="doc-footer-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <a href="mailto:tuitionstation777@gmail.com">tuitionstation777@gmail.com</a>
+        </div>
+        
+        <div class="doc-footer-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>contact: <a href="tel:+917706990114">+91 77069 90114</a></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
